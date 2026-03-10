@@ -12,7 +12,7 @@ export class App {
   fullName = 'Angular 15';
   age = 10
 
-q
+
   // Method: function
   sayHello() {
     console.log('hello');
