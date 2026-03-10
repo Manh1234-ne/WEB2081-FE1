@@ -9,13 +9,13 @@ import { RouterOutlet } from '@angular/router';
 })
 export class App {
   title = 'my-app'; // ko dung const hay let
-  fullName = 'Angular 15';
-  age = 10
+  fullName = 'Nguyễn Duy Mạnh';
+  age = 20
 
 
   // Method: function
-  sayHello() {
+  handleClick() {
     console.log('hello');
-    alert('Hello ' + this.fullName);
+    alert('Bạn đã click button');
   }
 }
