@@ -1,0 +1,38 @@
+.story-card {
+  border: 1px solid #ddd;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  margin: 20px 0;
+  padding: 16px;
+}
+
+.story-image {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.story-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+@media (max-width: 640px) {
+  .story-card {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .story-image {
+    margin-bottom: 10px;
+  }
+
+  .story-content {
+    align-items: center;
+    text-align: center;
+  }
+}

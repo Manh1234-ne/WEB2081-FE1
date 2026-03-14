@@ -1,0 +1,68 @@
+<p class="text-blue-500 font-bold">Danh sách truyện tranh</p>
+@if(stories.length === 0){
+<table class="w-full">
+    <tr>
+        <td>Không có truyện nào</td>
+    </tr>
+</table>
+} @else {
+@for(story of stories; track story.title){
+<div class="story-card">
+    @if(story.imageUrl){
+    <img src="{{ story.imageUrl }}" alt="{{ story.title }}" class="story-image" />
+    }
+        <div class="story-content">
+            <h3 class="font-bold">Tên truyện: {{ story.title }}</h3>
+            <p>Tác giả: {{ story.author }}</p>
+            <p>Năm phát hành: {{ story.year }}</p>
+            <p>Thể loại: {{ story.genre }}</p>
+
+            <p>Lượt xem: {{ story.views }}</p>
+            <br>
+            @if(story.views > 90000){
+                <p class="font-bold text-red-500">HOT</p>
+            }
+            <button (click)="handleClick()">Click me</button>
+        </div>
+</div>
+}
+}
+
+
+
+
+<table class="w-full border border-gray-400">
+    <thead>
+        <tr class="bg-gray-200">
+            <th class="border p-2">STT</th>
+            <th class="border p-2">Hình ảnh</th>
+            <th class="border p-2">Tên truyện</th>
+            <th class="border p-2">Tác giả</th>
+            <th class="border p-2">Lượt xem</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @for (story of stories; track story.title; let i = $index) {
+        <tr>
+            <td class="border p-2">{{ i + 1 }}</td>
+
+            <td class="border p-2">
+                @if (story.imageUrl) {
+                <img [src]="story.imageUrl" [alt]="story.title" style="width:80px"> }
+            </td>
+            <td class="border p-2">{{ story.title }}</td>
+
+            <td class="border p-2">{{ story.author }}</td>
+
+            <td class="border p-2">
+                {{ story.views }}
+
+                @if (story.views > 90000) {
+                <span class="text-red-500 font-bold ml-2">HOT</span>
+                }
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

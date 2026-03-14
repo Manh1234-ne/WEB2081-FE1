@@ -3,6 +3,7 @@ import { Home } from './pages/home/home';
 import { Contact } from './pages/contact/contact';
 import { Products } from './pages/products/products';
 import { ProductDetail } from './pages/product-detail/product-detail';
+import { Stories } from './pages/stories/stories';
 
 export const routes: Routes = [
     {
@@ -19,5 +20,9 @@ export const routes: Routes = [
         children: [
             { path: ':slug', component: ProductDetail },
         ],
+    },
+    {
+        path: 'stories',
+        component: Stories
     }
 ];
