@@ -4,6 +4,9 @@ import { Contact } from './pages/contact/contact';
 import { Products } from './pages/products/products';
 import { ProductDetail } from './pages/product-detail/product-detail';
 import { Stories } from './pages/stories/stories';
+import { AddStory } from './pages/add-story/add-story';
+import { Product } from './pages/product/product';
+import { Signup } from './pages/signup/signup';
 
 export const routes: Routes = [
     {
@@ -24,5 +27,17 @@ export const routes: Routes = [
     {
         path: 'stories',
         component: Stories
+    },
+    {
+        path: 'add-story',
+        component: AddStory
+    },
+    {
+        path: 'product',
+        component: Product
+    },
+    {
+        path: 'signup',
+        component: Signup
     }
 ];

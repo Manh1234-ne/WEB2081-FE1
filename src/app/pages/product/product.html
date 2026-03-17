@@ -1,0 +1,28 @@
+<h2>Thêm Product</h2>
+
+<div class="form-card">
+    <form [formGroup]="addProduct" (ngSubmit)="submitForm()">
+        <div class="form-row">
+            <label>Tên</label>
+            <input type="text" formControlName="name" />
+            @if (name?.invalid && name?.touched) {
+            <p style="color:red">Tên phải ít nhất 3 ký tự</p>
+            }
+        </div>
+
+        <div class="form-row">
+            <label>Gia</label>
+            <input type="number" formControlName="price" />
+            @if (price?.invalid && price?.touched) {
+            <p style="color:red">Giá phải lớn hơn 0</p>
+            }
+        </div>
+
+        <div class="form-row">
+            <label>Category</label>
+            <input type="text" formControlName="category" />
+        </div>
+
+        <button type="submit" [disabled]="addProduct.invalid" class="primary">Thêm </button>
+    </form>
+</div>
