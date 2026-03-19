@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-product',
@@ -10,23 +11,38 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 export class Product {
   addProduct: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  loading = false;
+  error = '';
+  success = ''
+
+  constructor(
+    private fb: FormBuilder,
+    private http: HttpClient
+
+  ) {
     this.addProduct = this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(3)]],
-      price: [0, [Validators.required, Validators.min(0)]],
-      category: ['', Validators.required]
+      name: '',
+      price: 0,
+      category: '',
     })
   }
 
-  get name() {
-  return this.addProduct.get('name');
-}
-  get price() {
-  return this.addProduct.get('price');
-}
-
+  
   submitForm() {
     console.log(this.addProduct.value);
 
+    const data = this.addProduct.value;
+    this.http.post('http://localhost:3000/products',data).subscribe({
+      next: () => {
+        alert('Product add successfully');
+      },
+      error: () => {
+        this.loading = false;
+        this.error = 'Co loi xay ra'
+      }
+    })
+
   }
+
+
 }

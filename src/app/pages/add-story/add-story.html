@@ -5,6 +5,7 @@
         <div class="form-row">
             <label>Tên truyện</label>
             <input type="text" formControlName="title" />
+            
         </div>
 
         <div class="form-row">
@@ -17,7 +18,8 @@
             <input type="number" formControlName="views" />
         </div>
 
-        <button type="submit" [disabled]="loading">{{ loading ? 'Đang gửi...' : 'Thêm truyện' }}</button>
+        <button type="submit"  [disabled]="loading">{{ loading ? 'Đang gửi...' : 'Thêm
+            truyện' }}</button>
     </form>
     @if (success) {
     <p style="color: green">{{ success }}</p>
