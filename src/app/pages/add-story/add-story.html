@@ -17,6 +17,11 @@
             <input type="number" formControlName="views" />
         </div>
 
-        <button type="submit" class="primary">Thêm truyện</button>
+        <button type="submit" [disabled]="loading">{{ loading ? 'Đang gửi...' : 'Thêm truyện' }}</button>
     </form>
+    @if (success) {
+    <p style="color: green">{{ success }}</p>
+    } @if (error) {
+    <p style="color: red">{{ error }}</p>
+    }
 </div>

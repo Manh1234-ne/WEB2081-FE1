@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-add-story',
@@ -10,7 +11,14 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 export class AddStory {
   addForm: FormGroup; //ten bien addFrom
 
-  constructor(private fb: FormBuilder){
+  loading = false;
+  error = '';
+  success = ''
+
+  constructor(
+    private fb: FormBuilder,
+    private http: HttpClient,
+  ) {
     this.addForm = this.fb.group({
       title: '', // form  co input title
       author: '',
@@ -18,8 +26,21 @@ export class AddStory {
     });
   }
 
-  submitForm(){
+  submitForm() {
+    this.loading = true;
+    this.error = '',
+      this.success = '';
     console.log(this.addForm.value);
     
+    const data = this.addForm.value;
+    this.http.post('http://localhost:3000/stories', data).subscribe({
+      next: () => {
+        alert('Story add successfully');
+      },
+      error: () => {
+        this.loading = false;
+        this.error = 'Co loi xay ra'
+      }
+    })
   }
 }
