@@ -1,4 +1,4 @@
-<p class="text-blue-500 font-bold">Danh sách truyện tranh</p>
+<!-- <p class="text-blue-500 font-bold">Danh sách truyện tranh</p>
 @if(stories.length === 0){
 <table class="w-full">
     <tr>
@@ -65,4 +65,40 @@
         </tr>
         }
     </tbody>
+</table> -->
+
+
+
+
+
+<h2>Danh sách truyện</h2>
+
+@if (loading) {
+<p>Đang tải dữ liệu...</p>
+} @if (error) {
+<p style="color: red">{{ error }}</p>
+} @if (!loading && stories.length === 0) {
+<p>Không có truyện nào</p>
+} @if (stories.length > 0) {
+<table border="1" cellpadding="10" cellspacing="0">
+  <tr>
+    <th>ID</th>
+    <th>Tên truyện</th>
+    <th>Tác giả</th>
+    <th>Lượt xem</th>
+    <th>Hành động</th>
+  </tr>
+
+  @for (story of stories; track story.id) {
+  <tr>
+    <td>{{ story.id }}</td>
+    <td>{{ story.title }}</td>
+    <td>{{ story.author }}</td>
+    <td>{{ story.views }}</td>
+    <td>
+      <button (click)="handleDelete(story.id)">Xóa</button>
+    </td>
+  </tr>
+  }
 </table>
+}
