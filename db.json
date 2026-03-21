@@ -17,51 +17,29 @@
       "author": "Tabata Yūki",
       "views": 1000000000000,
       "id": 7
+    },
+    {
+      "title": "Naruto",
+      "author": "Masashi Kishimoto",
+      "views": 80000,
+      "id": 8
     }
   ],
   "user": [],
   "products": [
     {
-      "name": "2wer",
-      "price": 24,
-      "category": "214",
-      "id": 1
+      "name": "Air Pods",
+      "price": 100000000,
+      "category": "Air Pods",
+      "views": 100000000,
+      "id": 12
     },
     {
-      "name": "",
-      "price": 0,
-      "category": "",
-      "id": 2
-    },
-    {
-      "name": "wt5",
-      "price": 23,
-      "category": "324",
-      "id": 3
-    },
-    {
-      "name": "wt5",
-      "price": 23,
-      "category": "324",
-      "id": 4
-    },
-    {
-      "name": "2235",
-      "price": 235,
-      "category": "235",
-      "id": 5
-    },
-    {
-      "name": "",
-      "price": 0,
-      "category": "",
-      "id": 6
-    },
-    {
-      "name": "",
-      "price": 0,
-      "category": "",
-      "id": 7
+      "name": "Laptop",
+      "price": 1000000000,
+      "category": "Laptop",
+      "views": 80000,
+      "id": 13
     }
   ]
 }

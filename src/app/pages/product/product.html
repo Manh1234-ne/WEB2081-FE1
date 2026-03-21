@@ -20,6 +20,12 @@
             
         </div>
 
+        <div class="form-row">
+            <label>Views</label>
+            <input type="number" formControlName="views" />
+            
+        </div>
+
         <button type="submit"  [disabled]="loading">{{ loading ? 'Đang gửi...' : 'Thêm products' }}</button>
     </form>
     @if (success) {

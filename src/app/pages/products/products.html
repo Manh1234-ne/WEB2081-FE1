@@ -1,8 +1,49 @@
-<p>Danh sách sản phẩm</p>
+<!-- <p>Danh sách sản phẩm</p>
 <ul>
     <li><a routerLink="laptop" class="hover:text-blue-500">Laptop</a></li>
     <li><a routerLink="phone" class="hover:text-blue-500">Phone</a></li>
     <li><a class="hover:text-blue-500">Tablet</a></li>
 </ul>
 
-<router-outlet></router-outlet>
+<router-outlet></router-outlet> -->
+
+
+
+
+<h2>Danh sách truyện</h2>
+
+@if (loading) {
+<p>Đang tải dữ liệu...</p>
+} @if (error) {
+<p style="color: red">{{ error }}</p>
+} @if (!loading && products.length === 0) {
+<p>Không có truyện nào</p>
+} @if (products.length > 0) {
+<table border="1" cellpadding="10" cellspacing="0">
+    <tr>
+        <th>ID</th>
+        <th>Tên</th>
+        <th>Giá</th>
+        <th>Danh mục</th>
+        <th>Views</th>
+        <th>Hành động</th>
+    </tr>
+
+    @for (product of products; track product.id) {
+    <tr>
+        <td>{{ product.id }}</td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.price }}</td>
+        <td>{{ product.category }}</td>
+        <td>{{ product.views }}
+            @if(product.views > 90000){
+            <p class="font-bold text-red-500">HOT</p>
+            }
+        </td>
+        <td>
+            <button (click)="handleDelete(product.id)">Xóa</button>
+        </td>
+    </tr>
+    }
+</table>
+}

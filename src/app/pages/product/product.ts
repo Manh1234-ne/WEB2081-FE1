@@ -24,6 +24,7 @@ export class Product {
       name: '',
       price: 0,
       category: '',
+      views: '',
     })
   }
 

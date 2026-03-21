@@ -36,18 +36,18 @@ export class Stories implements OnInit {
     })
   }
 
-handleDelete(id: number) {
-  const confirmDelete = confirm('Ban chac chan muon xoa Ư')
-  if (!confirmDelete) return
+  handleDelete(id: number) {
+    const confirmDelete = confirm('Bạn chắc chắn muốn xóa nó Ư')
+    if (!confirmDelete) return
 
-  this.http.delete(`http://localhost:3000/stories/${id}`).subscribe({
-    next: () => {
-      this.stories = this.stories.filter((story) => story.id !== id);
-      alert('Xoa OK');
-    },
-    error: () => {
-      alert('Xoa chua OK');
-    }
-  })
-}
+    this.http.delete(`http://localhost:3000/stories/${id}`).subscribe({
+      next: () => {
+        this.stories = this.stories.filter((story) => story.id !== id);
+        alert('Xoa OK');
+      },
+      error: () => {
+        alert('Xoa chua OK');
+      }
+    })
+  }
 }
