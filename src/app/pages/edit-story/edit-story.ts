@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -27,31 +27,39 @@ export class EditStory {
     this.id = this.route.snapshot.paramMap.get('id');
 
     this.editForm = this.fb.group({
-      title: '',
+      title: ['', [Validators.required, Validators.minLength(3)]],
       author: '',
       views: ''
     })
   }
 
   ngOnInit() {
-      this.http.get(`http://localhost:3000/stories/${this.id}`).subscribe({
-        next: (data: any) => {
-          console.log(data);
-          this.editForm.patchValue(data)
-        }
-      })
+    this.http.get(`http://localhost:3000/stories/${this.id}`).subscribe({
+      next: (data: any) => {
+        console.log(data);
+        this.editForm.patchValue(data)
+      },
+      error: () => {
+        this.error = "Có lỗi xảy ra khi lấy dữ liệu"
+      }
+    })
+  }
+
+
+  get title() {
+    return this.editForm.get('title');
   }
 
 
   submitForm() {
     console.log(this.editForm.value);
-    
+
     this.loading = true;
     this.error = '';
     this.success = '';
 
     const data = this.editForm.value;
-    this.http.put(`http://localhost:3000/stories/${this.id}`, data).subscribe({
+    this.http.patch(`http://localhost:3000/stories/${this.id}`, data).subscribe({
       next: () => {
         this.loading = false;
         this.success = "Edit OKE"

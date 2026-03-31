@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-story',
@@ -18,6 +19,7 @@ export class AddStory {
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
+    private router: Router
   ) {
     this.addForm = this.fb.group({
       title: '', // form  co input title
@@ -38,6 +40,9 @@ export class AddStory {
     this.http.post('http://localhost:3000/stories', data).subscribe({
       next: () => {
         alert('Story add successfully');
+
+        this.router.navigateByUrl('/stories')
+
       },
       error: () => {
         this.loading = false;

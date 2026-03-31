@@ -102,7 +102,7 @@
 
         <td>
             <button (click)="handleDelete(story.id)">Xóa</button>
-             <button>Sửa</button>
+             <a [routerLink]="['/edit', story.id]">Sửa</a>
         </td>
     </tr>
     }

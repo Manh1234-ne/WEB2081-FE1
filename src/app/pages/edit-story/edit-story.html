@@ -1,11 +1,16 @@
 <h2>Edit truyện tranh</h2>
 
 <div [formGroup]="editForm" class="form-card" (ngSubmit)="submitForm()">
-    <form >
+    <form>
         <div class="form-row">
             <label>Tên truyện</label>
             <input type="text" formControlName="title" />
-            
+            @if (title?.invalid && title?.touched) {
+
+            <p style="color:red">Tên truyện phải nhập và ít nhất 3 ký tự</p>
+
+            }
+
         </div>
 
         <div class="form-row">
@@ -18,7 +23,7 @@
             <input type="number" formControlName="views" />
         </div>
 
-        <button type="submit" >Lưu</button>
+        <button type="submit">Lưu</button>
     </form>
     @if (success) {
     <p style="color: green">{{ success }}</p>
