@@ -1,0 +1,28 @@
+<h2>Edit truyện tranh</h2>
+
+<div [formGroup]="editForm" class="form-card" (ngSubmit)="submitForm()">
+    <form >
+        <div class="form-row">
+            <label>Tên truyện</label>
+            <input type="text" formControlName="title" />
+            
+        </div>
+
+        <div class="form-row">
+            <label>Tác giả</label>
+            <input type="text" formControlName="author" />
+        </div>
+
+        <div class="form-row">
+            <label>Lượt xem</label>
+            <input type="number" formControlName="views" />
+        </div>
+
+        <button type="submit" >Lưu</button>
+    </form>
+    @if (success) {
+    <p style="color: green">{{ success }}</p>
+    } @if (error) {
+    <p style="color: red">{{ error }}</p>
+    }
+</div>

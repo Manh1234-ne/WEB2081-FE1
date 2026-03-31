@@ -1,7 +1,7 @@
 {
   "stories": [
     {
-      "title": "Dragon Ball",
+      "title": "Dragon Ball\\",
       "author": "Akira Toriyama",
       "views": 10000000000000,
       "id": 5
@@ -17,12 +17,6 @@
       "author": "Tabata Yūki",
       "views": 1000000000000,
       "id": 7
-    },
-    {
-      "title": "Naruto",
-      "author": "Masashi Kishimoto",
-      "views": 80000,
-      "id": 8
     }
   ],
   "user": [],
@@ -33,13 +27,6 @@
       "category": "Air Pods",
       "views": 100000000,
       "id": 12
-    },
-    {
-      "name": "Laptop",
-      "price": 1000000000,
-      "category": "Laptop",
-      "views": 80000,
-      "id": 13
     }
   ]
 }
